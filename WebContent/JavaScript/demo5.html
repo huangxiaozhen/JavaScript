@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM 节点操作</title>
+
+<script type="text/javascript">
+	function hello() {
+		//font 节点是一个容器，用innerHTML 设置值
+		//text 节点不是容易，可以直接 value
+		document.getElementById("txt").innerHTML = "用户名:";
+		document.getElementById("userName").value = "huangzhen";
+	}
+
+	function addDom() {
+		
+		var param = document.createElement("p");
+		var node =document.createTextNode("...前...")
+		param.appendChild(node);
+		
+		var param2 = document.createElement("p");
+		var node2 =document.createTextNode("...后...")
+		param2.appendChild(node2);
+		
+		//获取父亲节点
+		var parent = document.getElementById("parent");
+		//获取儿子节点
+		var son = document.getElementById("son");
+		//在儿子节点中加入元素
+		parent.insertBefore(param, son);
+		parent.appendChild(param2);
+
+	}
+	
+	function removeDom()
+	{
+		var parent =  document.getElementById("parent");
+		var son = document.getElementById("son");
+		parent.removeChild(son);
+	}
+	
+	function modifyDom() 
+	{
+		document.getElementById("girl").style.color= "green";
+		
+	}
+	
+</script>
+
+
+</head>
+<body>
+
+	<div id="parent">
+
+		<div id="son">
+
+			<font id="txt"> : </font> <input type="text" id="userName"
+				name="userName">
+
+		</div>
+
+	</div>
+
+	<input type="button" value="click" onclick="hello()">
+	<input type="button" value="添加" onclick="addDom()">
+	<input type="button" value="删除" onclick="removeDom()">
+	
+	<p id="girl">女程序员</p>
+	<input type="button" value="修改样式" onclick="modifyDom()">
+
+</body>
+</html>
