@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript 动态添加或删除 属性或方法</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+  //定义一个方法
+  function speak(something)
+  {
+	  alert(something);
+  }
+  
+  var p  = new Object();
+  // 动态添加属性或方法
+  p.name = "Jack"; //动态的添加属性
+  p.func = speak; //动态的添加方法
+  alert( p.name );
+  p.func("hello,大家好!");
+  
+  //动态的删除属性或方法 1
+  delete p.name;
+  alert(p.name);
+  delete p.func;
+ // p.func("hello,大家好!");
+  
+  //动态的删除属性或方法 2
+  p.name = undefined;
+  p.func = undefined;
+  alert(p.name);
+  p.func("hello,大家好!");
+
+</script>
+
+</body>
+</html>
